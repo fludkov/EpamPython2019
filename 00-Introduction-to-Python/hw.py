@@ -8,8 +8,21 @@
 """
 
 def is_permutation(a: str, b: str) -> bool:
+    a_list = list(a)
+    b_list = list(b)
+    try:
+        for i in a_list:
+            if i in b_list:
+                a_list.remove(i)
+                b_list.remove(i)
+                #print (a_list, b_list)
+    except:
+        return False
+    if a_list == b_list:
+        return True
+    else:
+        return False
     # Нужно проверить, являются ли строчки 'a' и 'b' перестановками
-
 
 assert is_permutation('baba', 'abab')
 assert is_permutation('abbba', 'abab')
